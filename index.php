@@ -6,8 +6,6 @@
     session_start();
 
 
-
-
 ?>
 
 <!DOCTYPE html>
