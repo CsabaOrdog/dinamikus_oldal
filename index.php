@@ -1,4 +1,8 @@
 <?php
+    if(isset($_SESSION)){
+        session_destroy();
+    }
+
     session_start();
 ?>
 
@@ -21,16 +25,18 @@
                     <h1 id="cim">Quiz</h1>
                 </div>
             </div>
-            <div id="tartalom" class="row justify-content-center">
-                <form method="post" class="text-center">
+            <div class="row justify-content-center">
+                <div id="tartalom" class="col text-center">
+                    <form id="urlap">
 
-                    <label for="nevField">Név:</label>
-                    <input type="text" name="nevField" id="nevField">
-                    <br>
-                    <input type="button" name="start" value="Start" id="start">
+                        <label for="nevField">Név:</label>
+                        <input type="text" name="nevField" id="nevField">
+                        <br>
+                        <input type="button" name="start" value="Start" id="start">
 
-                </form>
-
+                    </form>
+                    <span id="uzenet"></span>
+                </div>
             </div>
         </div>
     </body>
