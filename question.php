@@ -1,32 +1,33 @@
 <?php
+    include "kerdes.class.php";
     session_start();
-    $kerdes_szama = $_REQUEST["kerdes_szama"];
-    $kerdes = array("Mennyi 2+2?","1","2","3","4");
-    if($kerdes_szama < 10){
-        echo"
-        <div class='row'>
-            <div class='col'>
-            {$kerdes[0]}
-            </div>
-        </div>
-        <div class='row' >
-            <div class='col-md-3'>
-            {$kerdes[1]}<input type='radio' name='valasz' value='{$kerdes[1]}'>
-            </div>
-            <div class='col-md-3'>
-            {$kerdes[2]}<input type='radio' name='valasz' value='{{$kerdes[2]}}'>
-            </div>
-            <div class='col-md-3'>
-            {$kerdes[3]}<input type='radio' name='valasz' value='{{$kerdes[3]}}'>
-            </div>
-            <div class='col-md-3'>
-            {$kerdes[4]}<input type='radio' name='valasz' value='{{$kerdes[4]}}'>
-            </div>
-        </div>
-        <input type='button' value='Következő' onClick='check()'>
-        ";
+    do{
+        $kerdes_index = rand(0,count($_SESSION["kerdesek"])-1);
     }
-    else{
-        echo "Grat";
-    }
+    while(in_array($_SESSION["kerdesek"][$kerdes_index],$_SESSION["hasznalt_kerdesek"]));
+
+    $jelenlegi_kerdes = $_SESSION["hasznalt_kerdesek"][] = $_SESSION["kerdesek"][$kerdes_index];
+    $eddigi_kerdesek_szama = $_REQUEST["kerdes_szama"];
+
+
 ?>
+<?php if($eddigi_kerdesek_szama < 10):?>
+<div class='row'>
+    <div class='col'>
+    <?=$jelenlegi_kerdes->kerdes?>
+    </div>
+</div>
+<div class='row' >
+    <?php foreach($jelenlegi_kerdes->opciok as $opcio):?>
+        <div class='col-md-3'>
+            <label for="<?=array_search($opcio,$jelenlegi_kerdes->opciok)?>"><?=$opcio?> <label><input type='radio' name='valasz' value=<?=$opcio?> id=<?=array_search($opcio,$jelenlegi_kerdes->opciok)?>>
+        </div>
+    <?php endforeach?>
+</div>
+<input type='button' value='Következő' onClick='check()'>
+<?php else:?>
+ GRat valami I guess;
+
+<?php endif?>
+
+
