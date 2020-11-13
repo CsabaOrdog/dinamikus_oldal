@@ -12,6 +12,7 @@ window.addEventListener("load",()=>{
     });
 })
 
+
 function check(){
     let uzenet = document.querySelector("#uzenet");
     if(document.querySelectorAll("input[type=radio]:checked").length > 0){
@@ -24,19 +25,19 @@ function check(){
 }
 
 
-
+//A question.php-tól elkér egy kérdést és megjeleníti az urlap id-vel rendelkező űrlapon
 function getQuestion(szam){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("urlap").innerHTML = this.responseText;
+            document.querySelector("#urlap").innerHTML = this.responseText;
         }
     };
 
     xhttp.open("GET", `question.php?kerdes_szama=${szam}`, true);
     xhttp.send();
 }
-
+//Első alkalommal nem csak kérdést kér, hanem inicializálja a session változókat az init.php-val
 function start(){
     let nev = document.querySelector("#nevField").value;
 
@@ -45,6 +46,7 @@ function start(){
         initXhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.querySelector("body").innerHTML += this.responseText;
+                //EZ ITT NEMNEM
             }
         };
         initXhttp.open("GET", `init.php?nev=${nev}`, true);

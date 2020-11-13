@@ -1,5 +1,6 @@
 <?php
-
+    // Mivel nincs több oldal, és az oldalnak a működéshez nincs szükség újratöltésre,
+    // ezért minden újratöltődésnél új session jön létre
     if(isset($_SESSION)){
         session_destroy();
     }

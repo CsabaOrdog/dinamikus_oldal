@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include "kerdes.class.php";
+    include "Kerdes.class.php";
 
-    //Pont és a név változó inicializálása
+    //Pont, név változó és hasznalt_kerdesek(ami a használt kérdések indexét fogja tárolni) inicializálása
     $_SESSION["nev"] = $_REQUEST["nev"];
     $_SESSION["pont"] = 0;
     $_SESSION["hasznalt_kerdesek"] = array();
