@@ -1,7 +1,8 @@
+
 #cimsor{
-    background-color: #00aadd;
-    height: 10em;
-    padding: 2.5em;
+    background-color: #098d26;
+    height: 10rem;
+    padding: 2.5rem;
 }
 #cim{
     color: white;
@@ -14,4 +15,9 @@ body{
     background-image: url(background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#tartalom{
+    background-color: white;
+    padding: 10px;
 }

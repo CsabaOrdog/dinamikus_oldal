@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    print_r($_SESSION);
+    if(isset($_POST["asd"])){
+
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,10 +23,19 @@
         <div class="container">
             <div class="row" id="cimsor">
                 <div class="col text-center">
-                    <h1 id="cim">Valami jobb cim</h1>
+                    <h1 id="cim">Quiz</h1>
                 </div>
             </div>
+            <div id="tartalom" class="row justify-content-center">
+                <form method="post" class="text-center">
 
+                    <label for="nevField">Név:</label>
+                    <input type="text" name="nameField"  id="nevField">
+                    <br>
+                    <input type="submit" name="asd" value="yes">
+
+                </form>
+            </div>
         </div>
     </body>
 </html>
