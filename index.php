@@ -1,12 +1,6 @@
 <?php
     session_start();
-    print_r($_SESSION);
-    if(isset($_POST["asd"])){
-
-    }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +11,8 @@
         <link rel="stylesheet" href="styles.css" />
         <script src="bootstrap/jquery.min.js"></script>
         <script src="bootstrap/bootstrap.min.js"></script>
-        <title>Weboldal</title>
+        <script src="script.js"></script>
+        <title>Quiz</title>
     </head>
     <body>
         <div class="container">
@@ -30,11 +25,12 @@
                 <form method="post" class="text-center">
 
                     <label for="nevField">Név:</label>
-                    <input type="text" name="nameField"  id="nevField">
+                    <input type="text" name="nevField" id="nevField">
                     <br>
-                    <input type="submit" name="asd" value="yes">
+                    <input type="button" name="start" value="Start" id="start">
 
                 </form>
+
             </div>
         </div>
     </body>
