@@ -8,7 +8,7 @@
     $_SESSION["hasznalt_kerdesek"] = array();
 
     //Kérdések beolvasása csv fájlból
-    $file = new SplFileObject("data.csv");
+    $file = new SplFileObject("data/data.csv");
     $file->setFlags(SplFileObject::READ_CSV);
     $file->setCsvControl(';');
     $kerdesek = array();

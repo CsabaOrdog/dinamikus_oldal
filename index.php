@@ -16,10 +16,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles/styles.css" />
         <script src="bootstrap/jquery.min.js"></script>
         <script src="bootstrap/bootstrap.min.js"></script>
-        <script src="script.js"></script>
+        <script src="scripts/script.js"></script>
         <title>Quiz</title>
     </head>
     <body>
