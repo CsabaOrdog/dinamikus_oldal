@@ -3,4 +3,3 @@
     $user = "root";
     $password = "";
     $pdo = new PDO($database, $user, $password);
-?>

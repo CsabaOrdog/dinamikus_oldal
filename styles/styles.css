@@ -1,83 +1,90 @@
-*{
+* {
     font-size: 1.3rem;
-    color:white;
-
+    color: white;
 }
-label{
+
+label {
     font-size: 1.2rem;
     text-shadow: 1px 1px #222;
 }
-span{
+
+span {
     display: inline-block;
-    padding: .2rem;
-    border-radius: .2rem;
-    border: 3px solid #000;
-    margin-top:.3rem;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    border: 1px solid #222;
+    margin-top: 0.3rem;
 }
-#uzenet{
+
+#uzenet {
     display: inline;
     padding: 0px;
     margin: 0px;
     border: 0;
 }
-#cim{
+
+#cim {
     color: white;
     font-weight: 600;
     text-shadow: 1px 1px #222;
-
 }
-#cimsor{
+
+#cimsor {
     height: 15%;
 }
-#tartalom{
+
+#tartalom {
     height: 60%;
     align-items: center;
-
-}
-body{
-    background: linear-gradient(to bottom, rgba(118,52,248,1) 0%, rgba(46,125,217,1) 100%);
-    background-attachment: fixed
 }
 
+body {
+    background: linear-gradient(to bottom,
+            rgba(118, 52, 248, 1) 0%,
+            rgba(46, 125, 217, 1) 100%);
+    background-attachment: fixed;
+}
 
-
-.container{
+.container {
     height: 100vh;
     min-height: 300px;
     min-width: 300px;
 }
 
-input[type="text"]{
+input[type="text"] {
     background-color: #007bff;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     width: 26%;
     min-width: 250px;
 }
-#kerdes,#nevMegjelenit,#pontMegjelenit{
+
+#kerdes,
+#nevMegjelenit,
+#pontMegjelenit {
     background-color: #007bff;
 }
 
-
-table{
+table {
     width: 400px;
-    border: 1px solid white;
+    border: 1px dotted white;
 }
 
-td, th{
-    border: 1px solid white;
-
+td,
+th {
+    border: 1px dotted white;
 }
+
 @media screen and (max-width: 438px) {
-    #cimsor{
+    #cimsor {
         height: 14%;
     }
-    #tartalom{
+
+    #tartalom {
         height: 86%;
-        align-items:initial;
+        align-items: initial;
     }
-    table{
+
+    table {
         width: 150px;
-
     }
-
 }

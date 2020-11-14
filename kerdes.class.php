@@ -9,4 +9,3 @@ class Kerdes{
         $this->valasz = $valasz;
     }
 }
-?>
