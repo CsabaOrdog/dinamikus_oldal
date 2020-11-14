@@ -12,7 +12,7 @@
 }
 
 body{
-    background-image: url(../resources/background.jpg);
+    background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,4 +20,7 @@ body{
 #tartalom{
     background-color: white;
     padding: 10px;
+    height: 20rem;
 }
+
+

@@ -10,7 +10,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,26 +22,38 @@
         <title>Quiz</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container ">
             <div class="row" id="cimsor">
                 <div class="col text-center">
                     <h1 id="cim">Quiz</h1>
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div id="tartalom" class="col text-center">
-                    <form id="urlap">
 
-                        <label for="nevField">Név:</label>
-                        <input type="text" name="nevField" id="nevField">
-                        <br>
-                        <input type="button" name="start" value="Start" id="start">
+            <div id="tartalom" class="row justify-content-center align-items-center">
+                <div class="col ">
+                    <form id="urlap" autocomplete="off" >
+                        <div class="row" >
+                            <div class="col text-center">
+                                <label for="nevField">Name:</label>
+                                <input type="text" name="nevField" id="nevField">
+                            </div>
 
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col text-center" >
+                                <input type="button" name="start" value="Start" id="start">
+                            </div>
+
+                        </div>
                     </form>
-                    <span id="uzenet"></span>
                 </div>
+
             </div>
+        </div>
+        <div class="row">
+            <div class="col text-center"><span id="uzenet"></span></div>
         </div>
     </body>
 </html>

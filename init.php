@@ -15,7 +15,7 @@
     while(!$file->eof())
     {
         $row = $file->fgetcsv();
-        $kerdesek[] = new Kerdes($row[0],array_slice($row,1,4),$row[count($row)-1]);
+        $kerdesek[] = new Kerdes($row[0],array_slice($row,1,4),$row[5]);
 
     }
 

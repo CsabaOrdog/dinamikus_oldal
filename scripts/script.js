@@ -1,5 +1,7 @@
 
 let kerdes_szama = 0;
+let tipp = "";
+
 
 window.addEventListener("load",()=>{
     document.querySelector("#start").addEventListener("click",start);
@@ -16,8 +18,7 @@ window.addEventListener("load",()=>{
 })
 
 
-function ellenoriz(){
-
+function kovetkezoKerdes(){
     let uzenet = document.querySelector("#uzenet");
     if(ellenorizRadio()){
         uzenet.innerHTML = "";
@@ -36,14 +37,16 @@ function ellenorizRadio(){
 }
 
 function ellenorizValasz(){
+    let uzenet = document.querySelector("#uzenet");
     if(ellenorizRadio()){
+        uzenet.innerHTML = "";
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 [rossz, jo] = this.responseText.split(",");
-                document.getElementById(`${rossz}`).parentElement.style.background= `rgba(255,0,0,0.4)`;
+                document.getElementById(`${rossz}`).parentElement.style.background = `rgba(255,0,0,0.4)`;
                 document.getElementById(`${jo}`).parentElement.style.background = `rgba(0,255,0,0.4)`;
-                for(let i = 1; i < 5; i++){
+                for (let i = 1; i < 5; i++) {
                     document.getElementById(`${i}`).disabled = true;
                 }
             }
@@ -52,20 +55,31 @@ function ellenorizValasz(){
         xhttp.open("GET", `valaszellenor.php?valasz_szama=${valasz_szama}`, true);
         xhttp.send();
     }
+    else {
+        uzenet.innerHTML = "Válassz egyet!";
+    }
 }
+
+
 
 //A question.php-tól elkér egy kérdést és megjeleníti az urlap id-vel rendelkező űrlapon
 function getKerdes(szam){
+    console.log(uzenet);
+    tipp = document.querySelector("input[type=radio]:checked");
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+
+            uzenet = document.getElementById("uzenet");
             document.querySelector("#urlap").innerHTML = this.responseText;
+
         }
     };
 
-    xhttp.open("GET", `kerdes.php?kerdes_szama=${szam}`, true);
+    xhttp.open("GET", (tipp != null) ? `kerdes.php?kerdes_szama=${szam}&tipp=${tipp.id}` : `kerdes.php?kerdes_szama=${szam}`, true);
     xhttp.send();
+
 }
 //Első alkalommal nem csak kérdést kér, hanem inicializálja a session változókat az init.php-val
 function start(){
