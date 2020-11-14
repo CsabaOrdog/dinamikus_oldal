@@ -10,7 +10,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +28,7 @@
                     <h1 id="cim">Quiz</h1>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <div id="tartalom" class="col text-center">
                     <form id="urlap">
