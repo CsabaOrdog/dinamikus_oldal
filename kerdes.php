@@ -27,7 +27,7 @@
     <div class="col-md-8"></div>
     <div class="col-md-2 text-center" ><span id="pontMegjelenit">Pont: <?=$_SESSION["pont"]?>/<?=$eddigi_kerdesek_szama?></span></div>
 </div>
-<?php if($eddigi_kerdesek_szama < 2):?>
+<?php if($eddigi_kerdesek_szama < 15):?>
 
 <div class="row" >
     <div class="col text-center h5">
@@ -56,7 +56,11 @@
         <div class="col">
             <input type="button" value="Következő" onClick="kovetkezoKerdes()" class="btn btn-primary">
         </div>
+
 </div>
+        <div class="row">
+        <div class="col text-center"><span id="uzenet"></span></div>
+        </div>
     </div>
 
 <?php else:?>
@@ -75,8 +79,8 @@
         }
     ?>
     <div class="row">
-        <div class="col text-center h4">
-            Gratulálok <?=$_SESSION["nev"]?> <?=$_SESSION["pont"]/$eddigi_kerdesek_szama*100?>%-ra sikerült megoldani, így a <?=$cnt+1?>. helyen állsz.
+        <div class="col text-center h4 my-4">
+            Gratulálok <?=$_SESSION["nev"]?> <?=round($_SESSION["pont"]/$eddigi_kerdesek_szama*100,2)?>%-ra sikerült megoldani, így a <?=$cnt+1?>. helyen állsz.
         </div>
     </div>
     <div class="row">

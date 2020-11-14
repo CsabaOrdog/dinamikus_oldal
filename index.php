@@ -30,7 +30,13 @@
             </div>
             <div id="tartalom" class="row justify-content-center">
                     <div class="col">
-
+                        <div class="row text-center mb-2" >
+                            <div class="col" style="font-size: 22px">
+                                Név megadása után a Start gombra rányomva 15 kvízkérdést kell megválaszolni.
+                                <br>
+                                Rangsor gombra kattintva megtekinthető az eddigi játékokból álló rangsor
+                            </div>
+                        </div>
                         <div class="row ">
                             <div class="col text-center">
 
@@ -50,14 +56,15 @@
                                 <input type="button" value="Rangsor" id="rangsor" class="btn btn-primary">
                             </div>
                         </div>
-
+                        <div class="row">
+                        <div class="col text-center"><span id="uzenet"></span></div>
+                        </div>
                     </div>
+
 
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center"><span id="uzenet"></span></div>
-        </div>
+
 
     </body>
 </html>
