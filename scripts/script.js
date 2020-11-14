@@ -6,6 +6,8 @@ let tipp = "";
 window.addEventListener("load",()=>{
     document.querySelector("#start").addEventListener("click",start);
 
+    document.querySelector("#rangsor").addEventListener("click", ranglista);
+
     document.querySelector("#nevField").addEventListener("keypress",function(event){
         //Enter leütése esetén meghívódik a start gomb click eseménye
         if(event.keyCode === 13){
@@ -13,6 +15,7 @@ window.addEventListener("load",()=>{
             document.querySelector("#start").click();
         }
     });
+
 
 
 })
@@ -64,7 +67,7 @@ function ellenorizValasz(){
 
 //A question.php-tól elkér egy kérdést és megjeleníti az urlap id-vel rendelkező űrlapon
 function getKerdes(szam){
-    console.log(uzenet);
+
     tipp = document.querySelector("input[type=radio]:checked");
 
     let xhttp = new XMLHttpRequest();
@@ -72,7 +75,7 @@ function getKerdes(szam){
         if (this.readyState == 4 && this.status == 200) {
 
             uzenet = document.getElementById("uzenet");
-            document.querySelector("#urlap").innerHTML = this.responseText;
+            document.querySelector("#tartalom").innerHTML = this.responseText;
 
         }
     };
@@ -102,4 +105,18 @@ function start(){
     else{
         uzenet.innerHTML = "Írjon be egy nevet!";
     }
+}
+
+function ranglista(){
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.querySelector("#tartalom").innerHTML = this.responseText;
+
+        }
+    };
+
+    xhttp.open("GET", `ranglista.php`, true);
+    xhttp.send();
 }
