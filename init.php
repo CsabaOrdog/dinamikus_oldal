@@ -7,7 +7,7 @@
     $_SESSION["pont"] = 0;
     $_SESSION["hasznalt_kerdesek"] = array();
     $_SESSION["hasznalt_valaszok"] = array();
-    $_SESSION["kerdesek_szama"] = 10;
+    $_SESSION["kerdesek_szama"] = 15;
 
     //Kérdések beolvasása csv fájlból
     $file = new SplFileObject("data/data.csv");
