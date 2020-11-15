@@ -18,13 +18,14 @@ $eddigi_kerdesek_szama = $_REQUEST["kerdes_szama"];
 
 
 ?>
-<!--Csak 15 kérdést jelenít meg   -->
+
 <div class="col h-80">
     <div class="row">
         <div class="col-md-2 text-center"><span id="nevMegjelenit">Név: <?= $_SESSION["nev"] ?></span></div>
         <div class="col-md-8"></div>
         <div class="col-md-2 text-center"><span id="pontMegjelenit">Pont: <?= $_SESSION["pont"] ?>/<?= $eddigi_kerdesek_szama ?></span></div>
     </div>
+    <!--Csak 15 kérdést jelenít meg   -->
     <?php if ($eddigi_kerdesek_szama < 15) : ?>
 
         <div class="row">
