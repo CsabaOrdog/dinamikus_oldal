@@ -17,6 +17,35 @@ window.addEventListener("load", () => {
 });
 
 
+//Első alkalommal nem csak kérdést kér, hanem inicializálja a session változókat az init.php-val
+function start() {
+    let nev = document.querySelector("#nevField").value;
+    let uzenet = document.querySelector("#uzenet");
+    if (nev != "") {
+        uzenet.innerHTML = "";
+        let initXhttp = new XMLHttpRequest();
+        initXhttp.open("GET", `init.php?nev=${nev}`, true);
+        initXhttp.send();
+        getKerdes(kerdes_szama++);
+    } else {
+        uzenet.innerHTML = "Írjon be egy nevet!";
+    }
+}
+
+//A ranglista.php segítségével megjeleníti a jelenlegi ranglistát
+function rangsor() {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.querySelector("#tartalom").innerHTML = this.responseText;
+        }
+    };
+
+    xhttp.open("GET", `ranglista.php`, true);
+    xhttp.send();
+}
+
+
 //Ha van rádiógomb kijelölve, akkor a következő kérdést elkéri
 function kovetkezoKerdes()
 {
@@ -30,6 +59,25 @@ function kovetkezoKerdes()
     {
         uzenet.innerHTML = "Válassz egyet!";
     }
+}
+
+
+//A kerdes.php-tól elkér egy kérdést és megjeleníti az tartalom id-vel rendelkező divben
+//ha már egy kérdés be volt töltve, akkor a tipp paraméterrel a választ visszaküldi az előző kérdésre
+function getKerdes(szam) {
+    let tipp = document.querySelector("input[type=radio]:checked");
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.querySelector("#tartalom").innerHTML = this.responseText;
+
+        }
+    };
+
+    xhttp.open("GET", `kerdes.php?kerdes_szama=${szam}${(tipp != null) ? `&tipp=${tipp.id}` : ``}`, true);
+    xhttp.send();
+
 }
 
 
@@ -68,50 +116,3 @@ function ellenorizValasz() {
 }
 
 
-//A kerdes.php-tól elkér egy kérdést és megjeleníti az tartalom id-vel rendelkező divben
-//ha már egy kérdés be volt töltve, akkor a tipp paraméterrel a választ visszaküldi az előző kérdésre
-function getKerdes(szam) {
-    let tipp = document.querySelector("input[type=radio]:checked");
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector("#tartalom").innerHTML = this.responseText;
-
-        }
-    };
-
-    xhttp.open("GET", `kerdes.php?kerdes_szama=${szam}${(tipp != null) ? `&tipp=${tipp.id}` : ``}`, true);
-    xhttp.send();
-
-}
-
-
-//Első alkalommal nem csak kérdést kér, hanem inicializálja a session változókat az init.php-val
-function start() {
-    let nev = document.querySelector("#nevField").value;
-    let uzenet = document.querySelector("#uzenet");
-    if (nev != "") {
-        uzenet.innerHTML = "";
-        let initXhttp = new XMLHttpRequest();
-        initXhttp.open("GET", `init.php?nev=${nev}`, true);
-        initXhttp.send();
-        getKerdes(kerdes_szama++);
-    } else {
-        uzenet.innerHTML = "Írjon be egy nevet!";
-    }
-}
-
-
-//A ranglista.php segítségével megjeleníti a jelenlegi ranglistát
-function rangsor() {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector("#tartalom").innerHTML = this.responseText;
-        }
-    };
-
-    xhttp.open("GET", `ranglista.php`, true);
-    xhttp.send();
-}
