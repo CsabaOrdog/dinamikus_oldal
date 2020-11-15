@@ -1,5 +1,3 @@
-//Globális változó, az eddig feltett kérdéseket tárolja
-let kerdes_szama = 0;
 
 window.addEventListener("load", () => {
     document.querySelector("#start").addEventListener("click", start);
@@ -26,7 +24,7 @@ function start() {
         let initXhttp = new XMLHttpRequest();
         initXhttp.open("GET", `init.php?nev=${nev}`, true);
         initXhttp.send();
-        getKerdes(kerdes_szama++);
+        getKerdes();
     } else {
         uzenet.innerHTML = "Írjon be egy nevet!";
     }
@@ -53,7 +51,7 @@ function kovetkezoKerdes()
     if (ellenorizRadio())
     {
         uzenet.innerHTML = "";
-        getKerdes(kerdes_szama++);
+        getKerdes();
     }
     else
     {
@@ -62,9 +60,9 @@ function kovetkezoKerdes()
 }
 
 
-//A kerdes.php-tól elkér egy kérdést és megjeleníti az tartalom id-vel rendelkező divben
+//A beetoltKerdes.php-tól elkér egy kérdést és megjeleníti az tartalom id-vel rendelkező divben
 //ha már egy kérdés be volt töltve, akkor a tipp paraméterrel a választ visszaküldi az előző kérdésre
-function getKerdes(szam) {
+function getKerdes() {
     let tipp = document.querySelector("input[type=radio]:checked");
 
     let xhttp = new XMLHttpRequest();
@@ -75,7 +73,7 @@ function getKerdes(szam) {
         }
     };
 
-    xhttp.open("GET", `kerdes.php?kerdes_szama=${szam}${(tipp != null) ? `&tipp=${tipp.id}` : ``}`, true);
+    xhttp.open("GET", `betoltKerdes.php?${(tipp != null) ? `tipp=${tipp.id}` : ``}`, true);
     xhttp.send();
 
 }
@@ -93,7 +91,7 @@ function ellenorizRadio()
 //illetve disabled-re állítja az összes rádiógombot
 function ellenorizValasz() {
     let uzenet = document.querySelector("#uzenet");
-    let valasz_szama = document.querySelector("input[type=radio]:checked").id;
+
     if (ellenorizRadio()) {
         uzenet.innerHTML = "";
         let xhttp = new XMLHttpRequest();
@@ -107,10 +105,11 @@ function ellenorizValasz() {
                 }
             }
         };
-
+        let valasz_szama = document.querySelector("input[type=radio]:checked").id;
         xhttp.open("GET", `valaszellenor.php?valasz_szama=${valasz_szama}`, true);
         xhttp.send();
-    } else {
+    }
+    else {
         uzenet.innerHTML = "Válassz egyet!";
     }
 }

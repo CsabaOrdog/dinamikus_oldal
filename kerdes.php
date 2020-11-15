@@ -1,32 +1,14 @@
-<?php
-include "Kerdes.class.php";
-session_start();
-if (isset($_GET["tipp"]) && $_GET["tipp"] == $_SESSION["jelenlegi_kerdes"]->valasz)
-    $_SESSION["pont"]++;
-
-//Addig generál kérdéshez indexet, amíg olyat nem talál ami még nincs benne a hasznalt_kerdesek tömbben
-do {
-    $kerdes_index = rand(0, count($_SESSION["kerdesek"]) - 1);
-} while (in_array($kerdes_index, $_SESSION["hasznalt_kerdesek"]));
-//Generált indexet hozzáadja a hasznalt_kerdesek tömbhöz,
-//illetve lekéri a kerdesek tömbből a jelenlegi kérdést
-$_SESSION["hasznalt_kerdesek"][] = $kerdes_index;
-$_SESSION["jelenlegi_kerdes"] = $_SESSION["kerdesek"][$kerdes_index];
-
-//Az eddig feltett kérdések száma
-$eddigi_kerdesek_szama = $_REQUEST["kerdes_szama"];
-
-
-?>
-
+<!--
+Ez a fájl jeleníti a kérdéseket tartalmazó HTML elemeket
+-->
 <div class="col h-80">
     <div class="row">
         <div class="col-md-2 text-center"><span id="nevMegjelenit">Név: <?= $_SESSION["nev"] ?></span></div>
         <div class="col-md-8"></div>
-        <div class="col-md-2 text-center"><span id="pontMegjelenit">Pont: <?= $_SESSION["pont"] ?>/<?= $eddigi_kerdesek_szama ?></span></div>
+        <div class="col-md-2 text-center"><span id="pontMegjelenit">Pont: <?= $_SESSION["pont"] ?>/<?= count($_SESSION["hasznalt_kerdesek"])-1 ?></span></div>
     </div>
     <!--Csak 15 kérdést jelenít meg   -->
-    <?php if ($eddigi_kerdesek_szama < 15) : ?>
+    <?php if (count($_SESSION["hasznalt_kerdesek"]) < $_SESSION["kerdesek_szama"]+1) : ?>
 
         <div class="row">
             <div class="col text-center h5">
@@ -42,8 +24,6 @@ $eddigi_kerdesek_szama = $_REQUEST["kerdes_szama"];
                     <label for="<?= array_search($opcio, $_SESSION["jelenlegi_kerdes"]->opciok) + 1 ?>"><?= $opcio ?></label>
 
                     <input type="radio" name="valasz" value=<?= array_search($opcio, $_SESSION["jelenlegi_kerdes"]->opciok) + 1 ?> id=<?= array_search($opcio, $_SESSION["jelenlegi_kerdes"]->opciok) + 1 ?>>
-
-
 
                 </div>
             <?php endforeach ?>
@@ -79,7 +59,7 @@ $eddigi_kerdesek_szama = $_REQUEST["kerdes_szama"];
     ?>
     <div class="row">
         <div class="col text-center h4 my-4">
-            Gratulálok <?= $_SESSION["nev"] ?> <?= round($_SESSION["pont"] / $eddigi_kerdesek_szama * 100, 2) ?>%-ra sikerült megoldani, így a <?= $cnt + 1 ?>. helyen állsz.
+            Gratulálok <?= $_SESSION["nev"] ?> <?= round($_SESSION["pont"] / (count($_SESSION["hasznalt_kerdesek"])-1) * 100, 2) ?>%-ra sikerült megoldani, így a <?= $cnt + 1 ?>. helyen állsz.
         </div>
     </div>
     <div class="row">

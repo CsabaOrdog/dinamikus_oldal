@@ -21,7 +21,7 @@ foreach ($rows as $row) {
 <?php if (count($rows) > 0) : ?>
     <div class="col h-80 w-50 text-center">
 
-        <table style="margin: 0px auto;">
+        <table class="table">
             <thead>
                 <th>Helyezés</th>
                 <th>Név</th>

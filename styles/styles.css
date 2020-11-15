@@ -1,5 +1,5 @@
 * {
-    font-size: 1.3rem;
+    font-size: 1.23rem;
     color: white;
 }
 
@@ -24,7 +24,6 @@ span {
 }
 
 #cim {
-    color: white;
     font-weight: 600;
     text-shadow: 1px 1px #222;
 }
@@ -65,8 +64,8 @@ input[type="text"] {
 }
 
 table {
-    width: 400px;
     border: 1px dotted white;
+    margin: 0px auto;
 }
 
 td,
@@ -84,7 +83,4 @@ th {
         align-items: initial;
     }
 
-    table {
-        width: 150px;
-    }
 }
