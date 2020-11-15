@@ -28,11 +28,17 @@ function start()
     let uzenet = document.querySelector("#uzenet");
     if (nev != "")
     {
-        uzenet.innerHTML = "";
-        let initXhttp = new XMLHttpRequest();
-        initXhttp.open("GET", `init.php?nev=${nev}`, false);
-        initXhttp.send();
-        getKerdes();
+        if(nev.length > 10)
+        {
+            uzenet.innerHTML = "Max 10 karakter legyen a neved!";
+        }
+        else{
+            uzenet.innerHTML = "";
+            let initXhttp = new XMLHttpRequest();
+            initXhttp.open("GET", `init.php?nev=${nev}`, false);
+            initXhttp.send();
+            getKerdes();
+        }
     }
     else
     {

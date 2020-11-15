@@ -81,7 +81,7 @@
                             <div class="col text-center">
                                 <label for="nevField">Név:</label>
 
-                                <input type="text" id="nevField" autocomplete="off">
+                                <input type="text" id="nevField" autocomplete="off" placeholder="Max 10 karakter">
                             </div>
                         </div>
 
