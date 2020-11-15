@@ -2,12 +2,13 @@
     session_start();
     include "Kerdes.class.php";
 
-    //Pont, név változó és hasznalt_kerdesek(ami a használt kérdések indexét fogja tárolni) inicializálása
+    //Szükséges változók inicializálása, illetve a kérdések fájlból beolvassa
     $_SESSION["nev"] = $_REQUEST["nev"];
     $_SESSION["pont"] = 0;
     $_SESSION["hasznalt_kerdesek"] = array();
     $_SESSION["hasznalt_valaszok"] = array();
     $_SESSION["kerdesek_szama"] = 10;
+
     //Kérdések beolvasása csv fájlból
     $file = new SplFileObject("data/data.csv");
     $file->setFlags(SplFileObject::READ_CSV);

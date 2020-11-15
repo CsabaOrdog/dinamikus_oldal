@@ -3,6 +3,13 @@
     color: white;
 }
 
+body {
+    background: linear-gradient(to bottom,
+            rgba(118, 52, 248, 1) 0%,
+            rgba(46, 125, 217, 1) 100%);
+    background-attachment: fixed;
+}
+
 label {
     font-size: 1.2rem;
     text-shadow: 1px 1px #222;
@@ -11,16 +18,22 @@ label {
 span {
     display: inline-block;
     padding: 0.2rem;
-    border-radius: 0.2rem;
     border: 1px solid #222;
     margin-top: 0.3rem;
 }
 
-#uzenet {
-    display: inline;
-    padding: 0px;
-    margin: 0px;
-    border: 0;
+table {
+    border: 1px dotted white;
+    margin: 0px auto;
+}
+
+td,
+th {
+    border: 1px dotted white;
+}
+
+.container {
+    height: 100vh;
 }
 
 #cim {
@@ -37,40 +50,19 @@ span {
     align-items: center;
 }
 
-body {
-    background: linear-gradient(to bottom,
-            rgba(118, 52, 248, 1) 0%,
-            rgba(46, 125, 217, 1) 100%);
-    background-attachment: fixed;
-}
-
-.container {
-    height: 100vh;
-    min-height: 300px;
-    min-width: 300px;
-}
-
-input[type="text"] {
-    background-color: #007bff;
-    border-radius: 0.25rem;
-    width: 26%;
-    min-width: 250px;
-}
-
 #kerdes,
 #nevMegjelenit,
-#pontMegjelenit {
+#pontMegjelenit,
+#nevField {
     background-color: #007bff;
+    border-radius: 0.25rem;
 }
 
-table {
-    border: 1px dotted white;
-    margin: 0px auto;
-}
-
-td,
-th {
-    border: 1px dotted white;
+#uzenet {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
 }
 
 @media screen and (max-width: 438px) {
