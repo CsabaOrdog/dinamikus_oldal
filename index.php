@@ -61,7 +61,8 @@
                         Ha még nem válaszolt a kérdésre, akkor a kerdes.php segítségével betölti
                         az előző kérdést
                         */
-                        else{
+                        else
+                        {
                             require "kerdes.php";
                         }
                     ?>

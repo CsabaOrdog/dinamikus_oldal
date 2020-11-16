@@ -39,7 +39,7 @@
 
 <?php else : ?>
     <div class="col text-center">
-        <h2>Még nincsenek eredmények</h2>
+        <h3>Még nincsenek eredmények</h3>
         <form>
             <input type="submit" value="Vissza" class="btn btn-primary my-2">
         </form>
