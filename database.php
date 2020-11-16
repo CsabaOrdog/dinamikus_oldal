@@ -3,4 +3,14 @@
     $database = "mysql:host=localhost;dbname=quiz";
     $user = "root";
     $password = "";
-    $pdo = new PDO($database, $user, $password);
+    $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+    try
+    {
+        $pdo = new PDO($database, $user, $password, $options);
+    }
+    catch (PDOException $e)
+    {
+        echo "Adatbázishoz való csatlakozás sikertelen.";
+        exit;
+    }
+

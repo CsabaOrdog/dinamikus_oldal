@@ -1,19 +1,21 @@
 <?php
-//Az eddigi eredményeket lekéri az adatbázisból, majd megjeleníti egy táblázatban
-include "database.php";
-$stm = $pdo->query("SELECT nev, pont FROM eredmenyek ORDER BY pont DESC");
-$tableStr = "";
-$cnt = 0;
-$rows = $stm->fetchall();
-$previous = -1;
+    //Az eddigi eredményeket lekéri az adatbázisból, majd megjeleníti egy táblázatban
+    include "database.php";
+    $stm = $pdo->query("SELECT nev, pont FROM eredmenyek ORDER BY pont DESC");
+    $tableStr = "";
+    $cnt = 0;
+    $rows = $stm->fetchall();
+    $previous = -1;
 
-foreach ($rows as $row) {
-    if ($row[1] != $previous) {
-        $cnt++;
+    foreach ($rows as $row)
+    {
+        if ($row[1] != $previous)
+        {
+            $cnt++;
+        }
+        $tableStr .= "<tr><td>{$cnt}.</td><td>{$row[0]}</td><td>{$row[1]}</td></tr>";
+        $previous = $row[1];
     }
-    $tableStr .= "<tr><td>{$cnt}.</td><td>{$row[0]}</td><td>{$row[1]}</td></tr>";
-    $previous = $row[1];
-}
 
 ?>
 <?php if (count($rows) > 0) : ?>
