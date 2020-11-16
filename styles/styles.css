@@ -1,6 +1,5 @@
-* {
+html{
     font-size: 1.23rem;
-    color: white;
 }
 
 body {
@@ -11,24 +10,12 @@ body {
 }
 
 label {
-    font-size: 1.2rem;
     text-shadow: 1px 1px #222;
 }
 
-span {
-    display: inline-block;
-    padding: 0.2rem;
-    border: 1px solid #222;
-    margin-top: 0.3rem;
-}
 
-table {
-     border: 1px dotted white;
-}
-
-td,
-th {
-    border: 1px dotted white;
+th, td{
+    border:1px solid #dee2e6;
 }
 
 .container {
@@ -36,33 +23,18 @@ th {
 }
 
 #cim {
-    font-weight: 600;
     text-shadow: 1px 1px #222;
 }
 
 #cimsor {
-    height: 15%;
+    height: 25%;
+
 }
 
 #tartalom {
-    height: 60%;
-    align-items: center;
+    height: 75%;
 }
 
-#kerdes,
-#nevMegjelenit,
-#pontMegjelenit,
-#nevField {
-    background-color: #007bff;
-    border-radius: 0.25rem;
-}
-
-#uzenet {
-    display: inline;
-    padding: 0px;
-    margin: 0px;
-    border: 0;
-}
 
 ::placeholder{
     color:rgba(255,255,255,0.6);

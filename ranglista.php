@@ -22,11 +22,13 @@
 
     <div class="col text-center">
 
-        <table class="table">
+        <table class="table border">
             <thead>
-                <th>Helyezés</th>
-                <th>Név</th>
-                <th>Pont</th>
+                <tr>
+                    <th>Helyezés</th>
+                    <th>Név</th>
+                    <th>Pont</th>
+                </tr>
             </thead>
             <tbody>
                 <?= $tableStr ?>
