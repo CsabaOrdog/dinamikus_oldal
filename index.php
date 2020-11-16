@@ -9,9 +9,11 @@ if (isset($_SESSION["hasznalt_kerdesek"])) {
         Ha a használt_kerdesek tömb száma túllépi a kerdesek_szama értékét, akkor
         befejeződött az eddigi session, és törli a korábbi session változóit
         */
-    if (count($_SESSION["hasznalt_kerdesek"]) > $_SESSION["kerdesek_szama"]) {
+    if (count($_SESSION["hasznalt_kerdesek"]) > $_SESSION["kerdesek_szama"])
+    {
         session_unset();
-    } else {
+    }
+    else {
         //Ha még nem volt elegendő a kérdések száma, akkor még marad a korábbi session
         $in_session = true;
     }
