@@ -52,7 +52,9 @@ if (isset($_SESSION["hasznalt_kerdesek"])) {
                         kérdésre válaszolni, így egy új kérdést kér a betoltKerdes.php-tól
                         */
                 if (count($_SESSION["hasznalt_kerdesek"]) == count($_SESSION["hasznalt_valaszok"]))
+                {
                     require "betoltKerdes.php";
+                }
                 /*
                         Ha még nem válaszolt a kérdésre, akkor a kerdes.php segítségével betölti
                         az előző kérdést

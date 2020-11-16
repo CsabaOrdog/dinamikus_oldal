@@ -49,5 +49,7 @@ th, td{
         height: 86%;
         align-items: initial;
     }
-
+    html{
+        font-size: 1.25rem;
+    }
 }

@@ -22,7 +22,7 @@
 
     <div class="col text-center">
 
-        <table class="table border">
+        <table class="table border text-white">
             <thead>
                 <tr>
                     <th>Helyezés</th>
